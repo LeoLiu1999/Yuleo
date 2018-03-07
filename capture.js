@@ -20,16 +20,16 @@ var drawDot = function(e, x = -1, y = -1){ //default values OP
     c.setAttribute("fill", "red");
     c.setAttribute("stroke", "black");
     
-    c.addEventListener("click", doStuff, true);
+    c.addEventListener("click", changeOrDie, true);
     c.addEventListener("click", stop);
 
     pic.appendChild(c);
 }
 
-var doStuff = function(e){ //can this be done without e but still use drawDot?
-    if(this.getAttribute("fill") == "red"){
+var changeOrDie = function(e){ //can this be done without e but still use drawDot?
+    if(this.getAttribute("fill") == "red"){ //change
 	this.setAttribute("fill", "blue");
-    } else {
+    } else { //teleport
 	var x = Math.random() * 500;
 	var y = Math.random() * 500;
 	drawDot(e, x, y);
